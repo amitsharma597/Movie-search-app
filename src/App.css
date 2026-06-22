@@ -166,7 +166,11 @@ nav a:hover {
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
-
+.error-msg {
+  text-align: center;
+  color: #ef4444;
+  font-weight: 500;
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
