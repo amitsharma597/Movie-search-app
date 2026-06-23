@@ -10,10 +10,12 @@ const App = () => {
   const [query, setQuery] = useState("");
   const [loading, setloading] = useState(false);
   const [error, seterror] = useState(false);
+  const [empty, setempty] = useState("Search for a movie to get started.");
 
   const fetchMovies = async () => {
     setloading(true);
     seterror("");
+    setempty("");
 
     const response = await fetch(
       `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_API_KEY}&s=${query}`,
@@ -44,6 +46,7 @@ const App = () => {
         </div>
       )}
       {error && <p className="error-msg">{error}</p>}
+      {!error && !loading && <p className="error-msg">{empty}</p>}
       <div className="movies-grid">
         {movies.map((movie) => {
           return (
