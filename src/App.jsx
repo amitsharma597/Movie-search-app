@@ -1,8 +1,8 @@
-import Navbar from "./components/Navbar";
-import SearchBar from "./components/SearchBar";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import MovieDetails from "./pages/MovieDetails";
 import { useState } from "react";
-import MovieCard from "./components/MovieCard";
 
 const App = () => {
   console.log(import.meta.env.VITE_OMDB_API_KEY);
@@ -34,33 +34,11 @@ const App = () => {
 
     setQuery("");
   };
-
   return (
-    <>
-      <Navbar />
-      <SearchBar query={query} setquery={setQuery} fetchMovies={fetchMovies} />
-      {loading && (
-        <div className="loading">
-          <div className="spinner"></div>
-          <p>Searching movies...</p>
-        </div>
-      )}
-      {error && <p className="error-msg">{error}</p>}
-      {!error && !loading && <p className="empty-msg">{empty}</p>}
-      <div className="movies-grid">
-        {movies.map((movie) => {
-          return (
-            <MovieCard
-              key={movie.imdbID}
-              title={movie.Title}
-              year={movie.Year}
-              poster={movie.Poster}
-              type={movie.Type}
-            />
-          );
-        })}
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/movie/:id" element={<MovieDetails />} />
+    </Routes>
   );
 };
 
