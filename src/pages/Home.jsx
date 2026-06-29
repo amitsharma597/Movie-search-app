@@ -51,6 +51,7 @@ const Home = () => {
           return (
             <MovieCard
               key={movie.imdbID}
+              id={movie.imdbID}
               title={movie.Title}
               year={movie.Year}
               poster={movie.Poster}

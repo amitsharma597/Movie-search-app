@@ -109,6 +109,10 @@ nav a:hover {
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.5rem;
 }
+.movies-grid a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .movie-container {
   background: var(--navbar);
@@ -176,6 +180,59 @@ nav a:hover {
   font-size: 1.1rem;
 }
 
+/* MOVIE DETAILS */
+
+.movie-details {
+  width: min(1000px, 90%);
+  margin: 3rem auto;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.movie-details img {
+  width: 300px;
+  border-radius: 12px;
+}
+
+.movie-info {
+  flex: 1;
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.movie-info h1 {
+  margin-bottom: 1rem;
+}
+
+.movie-info h3 {
+  margin: 1.5rem 0 0.5rem;
+}
+
+.movie-info p {
+  margin-bottom: 0.8rem;
+  color: var(--muted);
+}
+
+.movie-info strong {
+  color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .movie-details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-details img {
+    width: 250px;
+  }
+
+  .movie-info {
+    width: 100%;
+  }
+}
 @keyframes spin {
   to {
     transform: rotate(360deg);
