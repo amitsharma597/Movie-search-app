@@ -193,17 +193,20 @@ nav a:hover {
 .movie-details img {
   width: 300px;
   border-radius: 12px;
+  transition: transform 0.3s;
+}
+.movie-details img:hover {
+  transform: scale(1.03);
 }
 
 .movie-info {
-  flex: 1;
   background: var(--card);
   padding: 1.5rem;
   border-radius: 12px;
 }
 
 .movie-info h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .movie-info h3 {
