@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const MovieDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -43,49 +44,54 @@ const MovieDetails = () => {
   }
 
   return (
-    <div className="movie-details">
-      <img
-        src={movie.Poster === "N/A" ? "/placeholder.png" : movie.Poster}
-        alt={movie.Title}
-      />
+    <div>
+      <button className="back-btn" onClick={() => navigate(-1)}>
+        ← Back
+      </button>
+      <div className="movie-details">
+        <img
+          src={movie.Poster === "N/A" ? "/placeholder.png" : movie.Poster}
+          alt={movie.Title}
+        />
 
-      <div className="movie-info">
-        <h1>🎬 {movie.Title}</h1>
+        <div className="movie-info">
+          <h1>🎬 {movie.Title}</h1>
 
-        <p>
-          <strong>⭐ IMDb Rating:</strong> {movie.imdbRating}
-        </p>
+          <p>
+            <strong>⭐ IMDb Rating:</strong> {movie.imdbRating}
+          </p>
 
-        <p>
-          <strong>📅 Released:</strong> {movie.Released}
-        </p>
+          <p>
+            <strong>📅 Released:</strong> {movie.Released}
+          </p>
 
-        <p>
-          <strong>🎭 Genre:</strong> {movie.Genre}
-        </p>
+          <p>
+            <strong>🎭 Genre:</strong> {movie.Genre}
+          </p>
 
-        <p>
-          <strong>⏱️ Runtime:</strong> {movie.Runtime}
-        </p>
+          <p>
+            <strong>⏱️ Runtime:</strong> {movie.Runtime}
+          </p>
 
-        <p>
-          <strong>🎬 Director:</strong> {movie.Director}
-        </p>
+          <p>
+            <strong>🎬 Director:</strong> {movie.Director}
+          </p>
 
-        <p>
-          <strong>🎤 Actors:</strong> {movie.Actors}
-        </p>
+          <p>
+            <strong>🎤 Actors:</strong> {movie.Actors}
+          </p>
 
-        <p>
-          <strong>🗣️ Language:</strong> {movie.Language}
-        </p>
+          <p>
+            <strong>🗣️ Language:</strong> {movie.Language}
+          </p>
 
-        <p>
-          <strong>💰 Box Office:</strong> {movie.BoxOffice}
-        </p>
+          <p>
+            <strong>💰 Box Office:</strong> {movie.BoxOffice}
+          </p>
 
-        <h3>📝 Plot</h3>
-        <p>{movie.Plot}</p>
+          <h3>📝 Plot</h3>
+          <p>{movie.Plot}</p>
+        </div>
       </div>
     </div>
   );

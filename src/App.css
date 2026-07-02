@@ -120,6 +120,9 @@ nav a:hover {
   border-radius: 16px;
   overflow: hidden;
   transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .movie-container:hover {
@@ -129,7 +132,7 @@ nav a:hover {
 
 .movie-container img {
   width: 100%;
-  aspect-ratio: 2/3;
+  height: 330px;
   object-fit: cover;
   display: block;
 }
@@ -137,6 +140,12 @@ nav a:hover {
 .movie-container h2 {
   padding: 1rem 1rem 0.5rem;
   font-size: 1.05rem;
+  line-height: 1.3;
+  min-height: 56px;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .movie-container p {
@@ -192,6 +201,8 @@ nav a:hover {
 
 .movie-details img {
   width: 300px;
+  height: 450px;
+  object-fit: cover;
   border-radius: 12px;
   transition: transform 0.3s;
 }
@@ -220,6 +231,19 @@ nav a:hover {
 
 .movie-info strong {
   color: var(--text);
+}
+.back-btn {
+  margin: 2rem 0 0 5%;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
