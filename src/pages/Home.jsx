@@ -12,6 +12,12 @@ const Home = () => {
   const [empty, setempty] = useState("Search for a movie to get started!");
 
   const fetchMovies = async () => {
+    if (!query.trim()) {
+      seterror("Please enter a movie name.");
+      setMovies([]);
+      setempty("");
+      return;
+    }
     setloading(true);
     seterror("");
     setempty("");
