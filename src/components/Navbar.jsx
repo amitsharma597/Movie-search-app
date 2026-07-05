@@ -6,7 +6,7 @@ const Navbar = () => {
         <h1>MovieApp</h1>
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/about">About me</Link>
+          <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
         </nav>
       </header>
