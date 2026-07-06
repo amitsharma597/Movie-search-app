@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 import { useState } from "react";
 import MovieCard from "../components/MovieCard";
@@ -42,7 +41,6 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
       <SearchBar query={query} setquery={setQuery} fetchMovies={fetchMovies} />
       {loading && (
         <div className="loading">
