@@ -1,6 +1,7 @@
 import SearchBar from "../components/SearchBar";
 import { useState } from "react";
 import MovieCard from "../components/MovieCard";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   console.log(import.meta.env.VITE_OMDB_API_KEY);
@@ -41,6 +42,7 @@ const Home = () => {
 
   return (
     <>
+      <Navbar />
       <SearchBar query={query} setquery={setQuery} fetchMovies={fetchMovies} />
       {loading && (
         <div className="loading">
