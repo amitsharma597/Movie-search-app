@@ -126,7 +126,6 @@ nav a:hover {
 }
 
 .movie-container:hover {
-  transform: translateY(-6px);
   border-color: var(--accent);
 }
 
@@ -155,6 +154,29 @@ nav a:hover {
 
 .movie-container p:last-child {
   margin-bottom: 1rem;
+}
+.poster {
+  position: relative;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.8);
+  color: #fff;
+  cursor: pointer;
+}
+
+.favorite-btn.active {
+  background: var(--accent);
+}
+.favorite-btn:active {
+  transform: scale(0.95);
 }
 
 .loading {
@@ -205,9 +227,6 @@ nav a:hover {
   object-fit: cover;
   border-radius: 12px;
   transition: transform 0.3s;
-}
-.movie-details img:hover {
-  transform: scale(1.03);
 }
 
 .movie-info {
