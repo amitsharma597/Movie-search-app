@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const MovieDetails = () => {
-  const { id } = useParams();
+  const { imdbID } = useParams();
   const navigate = useNavigate();
 
   const [movie, setMovie] = useState(null);
@@ -12,7 +12,7 @@ const MovieDetails = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       const response = await fetch(
-        `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_API_KEY}&i=${id}`,
+        `https://www.omdbapi.com/?apikey=${import.meta.env.VITE_OMDB_API_KEY}&i=${imdbID}`,
       );
 
       const data = await response.json();
@@ -28,7 +28,7 @@ const MovieDetails = () => {
     };
 
     fetchMovie();
-  }, [id]);
+  }, [imdbID]);
 
   if (loading) {
     return (

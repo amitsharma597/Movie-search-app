@@ -3,7 +3,7 @@ import { useState } from "react";
 import MovieCard from "../components/MovieCard";
 import Navbar from "../components/Navbar";
 
-const Home = () => {
+const Home = ({ favorites, setFavorites }) => {
   console.log(import.meta.env.VITE_OMDB_API_KEY);
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
@@ -56,12 +56,9 @@ const Home = () => {
         {movies.map((movie) => {
           return (
             <MovieCard
-              key={movie.imdbID}
-              id={movie.imdbID}
-              title={movie.Title}
-              year={movie.Year}
-              poster={movie.Poster}
-              type={movie.Type}
+              movie={movie}
+              favorites={favorites}
+              setFavorites={setFavorites}
             />
           );
         })}

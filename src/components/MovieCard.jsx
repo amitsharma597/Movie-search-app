@@ -1,36 +1,46 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 const MovieCard = (props) => {
-  const [favorite, setfavorite] = useState(false);
+  const isFavorite = props.favorites.some(
+    (movie) => movie.imdbID === props.movie.imdbID,
+  );
+
+  const handleFavorite = (e) => {
+    e.preventDefault();
+
+    if (isFavorite) {
+      props.setFavorites(
+        props.favorites.filter((movie) => movie.imdbID !== props.movie.imdbID),
+      );
+    } else {
+      props.setFavorites([...props.favorites, props.movie]);
+    }
+  };
 
   return (
     <>
       <div className="movie-container">
-        <Link to={`/movie/${props.id}`}>
+        <Link to={`/movie/${props.movie.imdbID}`}>
           <div className="poster">
             <img
               src={
-                props.poster !== "N/A"
-                  ? props.poster
+                props.movie.Poster !== "N/A"
+                  ? props.movie.Poster
                   : "https://placehold.co/300x450?text=No+Poster"
               }
-              alt={props.title}
+              alt={props.movie.Title}
             />
 
             <button
-              onClick={(e) => {
-                e.preventDefault();
-                setfavorite(!favorite);
-              }}
-              className={`favorite-btn ${favorite ? "active" : ""}`}
+              onClick={handleFavorite}
+              className={`favorite-btn ${isFavorite ? "active" : ""}`}
             >
               ❤
             </button>
           </div>
 
-          <h2>{props.title}</h2>
-          <p>{props.year}</p>
-          <p>{props.type}</p>
+          <h2>{props.movie.Title}</h2>
+          <p>{props.movie.Year}</p>
+          <p>{props.movie.Type}</p>
         </Link>
       </div>
     </>
