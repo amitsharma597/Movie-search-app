@@ -1,5 +1,22 @@
 import { Link } from "react-router-dom";
 const FavoriteCard = (props) => {
+  const isFavorite = props.favorites.some(
+    (movie) => movie.imdbID === props.favoriteMovies.imdbID,
+  );
+
+  const handleFavorite = (e) => {
+    e.preventDefault();
+
+    if (isFavorite) {
+      props.setFavorites(
+        props.favorites.filter(
+          (movie) => movie.imdbID !== props.favoriteMovies.imdbID,
+        ),
+      );
+    } else {
+      props.setFavorites([...props.favorites, props.favoriteMovies]);
+    }
+  };
   return (
     <div>
       <Link to={`/movie/${props.favoriteMovies.imdbID}`}>
@@ -13,6 +30,12 @@ const FavoriteCard = (props) => {
               }
               alt={props.favoriteMovies.Title}
             />
+            <button
+              onClick={handleFavorite}
+              className={`favorite-btn ${isFavorite ? "active" : ""}`}
+            >
+              ❤
+            </button>
           </div>
 
           <h2>{props.favoriteMovies.Title}</h2>

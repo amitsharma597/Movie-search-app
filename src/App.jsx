@@ -4,10 +4,17 @@ import Home from "./pages/Home";
 import MovieDetails from "./pages/MovieDetails";
 import About from "./pages/About";
 import Favorite from "./pages/Favorite";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const App = () => {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const stored = localStorage.getItem("favorites");
+
+    return stored ? JSON.parse(stored) : [];
+  });
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
   return (
     <>
       <Routes>
@@ -17,7 +24,12 @@ const App = () => {
         />
         <Route path="/movie/:imdbID" element={<MovieDetails />} />
         <Route path="/about" element={<About />} />
-        <Route path="/favorite" element={<Favorite favorites={favorites} />} />
+        <Route
+          path="/favorite"
+          element={
+            <Favorite favorites={favorites} setFavorites={setFavorites} />
+          }
+        />
       </Routes>
     </>
   );
