@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { Heart } from "lucide-react";
+
 const MovieCard = (props) => {
   const isFavorite = props.favorites.some(
     (movie) => movie.imdbID === props.movie.imdbID,
@@ -29,12 +31,11 @@ const MovieCard = (props) => {
               }
               alt={props.movie.Title}
             />
-
             <button
               onClick={handleFavorite}
               className={`favorite-btn ${isFavorite ? "active" : ""}`}
             >
-              ❤
+              <Heart size={22} fill={isFavorite ? "currentColor" : "none"} />
             </button>
           </div>
 

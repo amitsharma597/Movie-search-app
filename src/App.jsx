@@ -5,6 +5,7 @@ import MovieDetails from "./pages/MovieDetails";
 import About from "./pages/About";
 import Favorite from "./pages/Favorite";
 import { useState, useEffect } from "react";
+import { Clapperboard } from "lucide-react";
 
 const App = () => {
   console.log(import.meta.env.VITE_OMDB_API_KEY);
@@ -12,7 +13,19 @@ const App = () => {
   const [query, setQuery] = useState("");
   const [loading, setloading] = useState(false);
   const [error, setError] = useState(false);
-  const [empty, setEmpty] = useState("Search for a movie to get started!");
+  const [empty, setEmpty] = useState(
+    <div className="empty-state">
+      <div className="empty-icon">
+        <Clapperboard size={72} strokeWidth={1.8} />
+      </div>
+      <h2>Discover Your Next Movie</h2>
+      <p>
+        Find movies, series, and more.
+        <br />
+        Start by typing a title above.
+      </p>
+    </div>,
+  );
 
   const fetchMovies = async () => {
     if (!query.trim()) {
