@@ -320,16 +320,20 @@ nav a.active::after {
   margin: 3rem auto;
 }
 
-.about h1 {
-  text-align: center;
+.about-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.7rem;
   margin-bottom: 1rem;
 }
 
-.about p {
+.about-description {
+  max-width: 700px;
+  margin: 0 auto 2rem;
   text-align: center;
   color: var(--muted);
-  margin-bottom: 2rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .about-card {
@@ -340,23 +344,55 @@ nav a.active::after {
 }
 
 .about-card h2 {
-  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
 }
 
 .about-card p,
 .about-card li {
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.7;
   text-align: left;
-  margin-bottom: auto;
+}
+
+.about-card p {
+  margin-bottom: 0;
 }
 
 .about-card ul {
   padding-left: 1.2rem;
 }
 
+.about-card li {
+  margin-bottom: 0.5rem;
+}
+
 .about strong {
   color: var(--text);
+}
+
+.about svg {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .about-title {
+    font-size: 1.8rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .about-card {
+    padding: 1.2rem;
+  }
+
+  .about-card h2 {
+    font-size: 1.2rem;
+  }
 }
 
 /* ---------- ANIMATION ---------- */
