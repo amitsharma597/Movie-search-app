@@ -1,105 +1,138 @@
-# MovieApp 🎬
+# 🎬 MovieApp
 
-A responsive movie search application built with React and the OMDb API. Users can search for movies and view movie posters, titles, release years, and media types in a clean, modern interface.
+A modern movie search application built with **React** and powered by the **OMDb API**. Search for movies and TV shows, explore detailed information, and save your favorite movies with a clean, responsive user interface.
 
-## Features
+---
 
-- 🔍 Search movies by title
-- 🎥 Display movie poster, title, year, and type
-- ⌨️ Search using Enter key or Search button
-- ⏳ Loading spinner while fetching data
-- ❌ Error handling for invalid searches
-- 📭 Empty state before any search is performed
-- 📱 Responsive design for desktop, tablet, and mobile devices
-- 🎨 Modern dark-themed UI
+## ✨ Features
 
-## Tech Stack
+- 🔍 Search movies and TV shows
+- 🎬 View detailed movie information
+- ❤️ Add and remove favorites
+- 💾 Favorites persisted using Local Storage
+- 🧭 Client-side routing with React Router
+- ⬅️ Back navigation support
+- ⚠️ Loading, error, and empty states
+- 📱 Fully responsive design
+
+---
+
+## 🛠️ Tech Stack
 
 - React
 - JavaScript (ES6+)
+- React Router
 - Vite
-- CSS3
+- CSS
 - OMDb API
+- Local Storage
 
-## Project Structure
+---
 
-```text
-src/
-│
-├── components/
-│   ├── Navbar.jsx
-│   ├── SearchBar.jsx
-│   └── MovieCard.jsx
-│
-├── App.jsx
-├── App.css
-└── main.jsx
-```
+## 📸 Screenshots
 
-## Installation
+### Home Page
 
-### Clone the repository
+![Home](./screenshots/home.png)
+
+### Movie Details
+
+![Movie Details](./screenshots/moviedetails.png)
+
+### Favorites
+
+![Favorites](./screenshots/favorites.png)
+
+### About
+
+![About](./screenshots/about.png)
+
+---
+
+## ⚙️ Installation
+
+Clone the repository
 
 ```bash
-git clone <https://github.com/amitsharma597/Movie-search-app>
+git clone https://github.com/yourusername/movie-app.git
+```
+
+Navigate to the project folder
+
+```bash
 cd movie-app
 ```
 
-### Install dependencies
+Install dependencies
 
 ```bash
 npm install
 ```
 
-### Create a .env file
+Create a `.env` file in the project root and add your OMDb API key:
 
 ```env
-VITE_OMDB_API_KEY=your_api_key_here
+VITE_OMDB_API_KEY=YOUR_API_KEY
 ```
 
-Get your free API key from:
-
-https://www.omdbapi.com/
-
-### Start the development server
+Start the development server
 
 ```bash
 npm run dev
 ```
 
-## How It Works
+---
 
-1. User enters a movie title.
-2. The application sends a request to the OMDb API.
-3. While data is being fetched, a loading spinner is displayed.
-4. Search results are rendered as movie cards.
-5. If no movies are found, an error message is shown.
-6. Before any search, an empty-state message is displayed.
+## 📂 Project Structure
 
-## Learning Outcomes
+```
+src
+│
+├── components
+│   ├── FavoriteCard.jsx
+│   ├── MovieCard.jsx
+│   ├── Navbar.jsx
+│   └── SearchBar.jsx
+│
+├── pages
+│   ├── About.jsx
+│   ├── Favorite.jsx
+│   ├── Home.jsx
+│   └── MovieDetails.jsx
+│
+├── App.jsx
+├── main.jsx
+└── App.css
+```
 
-This project helped practice:
+---
+
+## 🌐 API
+
+This project uses the **OMDb API** to fetch movie data.
+
+https://www.omdbapi.com/
+
+---
+
+## 📚 What I Learned
+
+Building this project helped me practice:
 
 - React Components
-- Props
-- useState Hook
-- Conditional Rendering
+- React Hooks (`useState`, `useEffect`)
+- React Router
 - API Integration
-- Environment Variables
-- Responsive Design
-- Loading States
-- Error Handling
+- Local Storage
+- Conditional Rendering
+- State Management
+- Component Reusability
+- Responsive UI Design
 
-## Future Improvements
+---
 
-- Movie Details Page
-- Favorites / Watchlist
-- Pagination
-- Search History
-- Popular Movies on Startup
+## 👨‍💻 Author
 
-## Author
+**Amit Sharma**
 
-Amit Sharma
-
-Built with React and OMDb API 🎬
+Built as a portfolio project to strengthen React fundamentals and modern frontend development skills.
